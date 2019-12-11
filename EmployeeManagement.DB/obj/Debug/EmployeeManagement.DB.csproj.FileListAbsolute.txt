@@ -10,3 +10,6 @@ C:\Users\M1049181\Desktop\api case study\EmployeeManagement.DB\obj\Debug\Employe
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement.DB\obj\Debug\EmployeeManagement.DB.csproj.CopyComplete
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement.DB\obj\Debug\EmployeeManagement.DB.dll
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement.DB\obj\Debug\EmployeeManagement.DB.pdb
+C:\Users\M1049181\Desktop\api case study\EmployeeManagement.DB\bin\Debug\AutoMapper.dll
+C:\Users\M1049181\Desktop\api case study\EmployeeManagement.DB\bin\Debug\AutoMapper.pdb
+C:\Users\M1049181\Desktop\api case study\EmployeeManagement.DB\bin\Debug\AutoMapper.xml
