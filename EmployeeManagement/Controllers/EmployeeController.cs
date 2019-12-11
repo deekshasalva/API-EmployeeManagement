@@ -48,6 +48,24 @@ namespace EmployeeManagement.Controllers
         }
 
 
+       
+        public ActionResult GetEmployeeById()
+        {
+            try
+            {
+                ServiceRepository serviceObj = new ServiceRepository();
+                HttpResponseMessage response = serviceObj.GetResponse("api/employeemanagement/getallemployees");
+                response.EnsureSuccessStatusCode();
+                List<Models.EmployeeModel> employeeModels = response.Content.ReadAsAsync<List<Models.EmployeeModel>>().Result;
+                return View(employeeModels);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
         [HttpGet]
         public ActionResult GetEmployee(int id)
         {
@@ -64,7 +82,7 @@ namespace EmployeeManagement.Controllers
             ServiceRepository serviceObj = new ServiceRepository();
             HttpResponseMessage response = serviceObj.DeleteResponse("api/employeemanagement/deleteemployee?id=" + id.ToString());
             response.EnsureSuccessStatusCode();
-            return RedirectToAction("GetAllProducts");
+            return RedirectToAction("GetAllEmployees");
         }
 
     }

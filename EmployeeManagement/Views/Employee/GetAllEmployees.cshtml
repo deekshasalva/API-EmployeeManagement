@@ -1,27 +1,24 @@
 ﻿@model IEnumerable<EmployeeManagement.Models.EmployeeModel>
 
-@{
-    ViewBag.Title = "GetAllEmployees";
-}
 
-<h2>GetAllEmployees</h2>
+&nbsp; &nbsp;Get All Employees
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.employeeId)
+           Employee Id
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.employeeName)
+            Employee Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Age)
+           Employee Age
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.salaryInLakh)
+           Salary(In Lakh)
         </th>
         <th></th>
     </tr>
@@ -41,9 +38,7 @@
             @Html.DisplayFor(modelItem => item.salaryInLakh)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "DeleteEmployee", new { id=item.employeeId })
         </td>
     </tr>
 }

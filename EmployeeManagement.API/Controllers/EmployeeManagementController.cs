@@ -13,21 +13,23 @@ namespace EmployeeManagement.API.Controllers
 {
     public class EmployeeManagementController : ApiController
     {
-        private readonly IEmployeeData _employeeData;
+        private readonly IEmployeeData _employeeData=new EmployeeData();
        
         ModelMapping.ModelMapping modelMap=new ModelMapping.ModelMapping();
 
-        public EmployeeManagementController(IEmployeeData employeeData)
-        {
-            _employeeData = employeeData;
-        }
-        
+              
 
         [HttpGet]
-        public JsonResult<List<EmployeeDataModel>> GetAllEmployees()
+        public JsonResult<List<Models.Employee>> GetAllEmployees()
         {
-            List<EmployeeDataModel> _Employees = _employeeData.GetAllEmployees().ToList();
-            return Json(_Employees);
+            List<Models.Employee> employees = new List<Models.Employee>();
+            List<EmployeeDataModel> _Employees = _employeeData.GetAllEmployees();
+            foreach (EmployeeDataModel _Employee in _Employees)
+            {
+                var data = modelMap.ApiModelMappingGet(_Employee);
+                employees.Add(data);
+            }
+            return Json(employees);
         }
 
         [HttpGet]

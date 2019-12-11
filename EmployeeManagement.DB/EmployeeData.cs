@@ -16,12 +16,16 @@ namespace EmployeeManagement.DB
 
         public  List<EmployeeDataModel> GetAllEmployees()
         {
-            List<tbl_Employee> _Employee = new List<tbl_Employee>();
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<List<tbl_Employee>,List<EmployeeDataModel>>());
-            var map = config.CreateMapper();
-            var data = map.Map<List<tbl_Employee>,List<EmployeeDataModel>>(_Employee);
-            return data;
+            List<tbl_Employee> employee = employeeEntity.tbl_Employee.ToList();
+            List<EmployeeDataModel> employeeData = new List<EmployeeDataModel>();
+            foreach(tbl_Employee _Employee in employee)
+            {
+                var data=entityMapper.DBModelMappingGet(_Employee);
+                employeeData.Add(data);
+            }
+            return employeeData;
         }
+
         public EmployeeDataModel GetEmployeeById(int employeeId)
         {
             tbl_Employee employee= employeeEntity.tbl_Employee.Where(p => p.employeeId == employeeId).FirstOrDefault();
@@ -29,6 +33,7 @@ namespace EmployeeManagement.DB
             return data;
 
         }
+
         public  bool AddEmployee(EmployeeDataModel _Employee)
         {
             var data = entityMapper.DBModelMappingPost(_Employee);

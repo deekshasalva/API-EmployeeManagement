@@ -1,59 +1,60 @@
-﻿@model EmployeeManagement.Models.EmployeeModel
+﻿<!DOCTYPE html>
+<html>
 
-@{
-    ViewBag.Title = "AddEmployee";
-}
+<body>
 
-<h2>AddEmployee</h2>
+    <div class="container body-content">
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>EmployeeModel</h4>
+
+        &nbsp; &nbsp; Add Employee
+
+        <form action="/Employee/AddEmployee" method="post">
+            <input name="__RequestVerificationToken" type="hidden" value="6O4kR4h5QCIcyyebmeVqkDiKUVpEcPFULF6ZiK2LiNPgezKWQ3ADX3r_JowgHsGz0wgU_QWQzCK6Fq_MA_p_NmEZbJUFO9cbGAj6EQQsPkM1" />    <div class="form-horizontal">
+
+                <hr />
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="employeeName">Employee Name</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" id="employeeName" name="employeeName" type="text" value="" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="employeeName" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Age">Age</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field Age must be a number." data-val-required="The Age field is required." id="Age" name="Age" type="number" value="" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Age" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="salaryInLakh">salary (In Lakhs)</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field salaryInLakh must be a number." data-val-required="The salaryInLakh field is required." id="salaryInLakh" name="salaryInLakh" type="text" value="" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="salaryInLakh" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.employeeId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.employeeId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.employeeId, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.employeeName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.employeeName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.employeeName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.salaryInLakh, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.salaryInLakh, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.salaryInLakh, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <script src="/Scripts/jquery-3.3.1.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+
+
+</body>
+</html>
