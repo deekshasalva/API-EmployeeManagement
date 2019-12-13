@@ -170,8 +170,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ModelMapping\ModelMappdData.cs" />
-    <Compile Include="Models\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -258,9 +257,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EmployeeManagement.DB\EmployeeManagement.DB.csproj">
+    <ProjectReference Include="..\EmployeeManagement.DB\EmployeeManagement.Object.csproj">
       <Project>{e5a5c106-08eb-4930-95c3-8f673f573c88}</Project>
-      <Name>EmployeeManagement.DB</Name>
+      <Name>EmployeeManagement.Object</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeManagementDataAccess\EmployeeManagementDataAccess.csproj">
+      <Project>{89f03ee4-d63a-4988-9c67-4ded9ed3a9ce}</Project>
+      <Name>EmployeeManagementDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

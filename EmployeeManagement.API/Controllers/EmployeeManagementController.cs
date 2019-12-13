@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using EmployeeManagement.DB;
+using EmployeeManagement.Object;
+using EmployeeManagementDataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,39 +21,30 @@ namespace EmployeeManagement.API.Controllers
               
 
         [HttpGet]
-        public JsonResult<List<Models.Employee>> GetAllEmployees()
+        public JsonResult<List<EmployeeDataModel>> GetAllEmployees()
         {
-            List<Models.Employee> employees = new List<Models.Employee>();
+            //List<Models.Employee> employees = new List<Models.Employee>();
             List<EmployeeDataModel> _Employees = _employeeData.GetAllEmployees();
-            foreach (EmployeeDataModel _Employee in _Employees)
-            {
-                var data = modelMap.ApiModelMappingGet(_Employee);
-                employees.Add(data);
-            }
-            return Json(employees);
+            
+            return Json(_Employees);
         }
 
         [HttpGet]
-        public JsonResult<Models.Employee> GetEmployeeById(int id)
+        public JsonResult<EmployeeDataModel> GetEmployeeById(int id)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<tbl_Employee, Models.Employee>());
-            var map = config.CreateMapper();
             EmployeeDataModel _Employees = _employeeData.GetEmployeeById(id);
-            var data = modelMap.ApiModelMappingGet(_Employees);
-            return Json(data);
+            return Json(_Employees);
 
         }
 
         [HttpPost]
-        public bool AddEmployee(Models.Employee employee)
+        public bool AddEmployee(EmployeeDataModel employee)
         {
             bool status = false;
             if (ModelState.IsValid)
             {
-                var data = modelMap.ApiModelMappingPost(employee);
-                status = _employeeData.AddEmployee(data);
+                status = _employeeData.AddEmployee(employee);
                 return status;
-
             }
             return status;
         }

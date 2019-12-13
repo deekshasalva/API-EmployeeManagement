@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeManagement.DB
+namespace EmployeeManagement.Object
 {
     using System;
     using System.Collections.Generic;

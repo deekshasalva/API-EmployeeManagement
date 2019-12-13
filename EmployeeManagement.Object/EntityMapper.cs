@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.DB
+namespace EmployeeManagement.Object
 {
     public class EntityMapper
     {

@@ -1,26 +1,24 @@
-﻿using AutoMapper;
+﻿using EmployeeManagement.Object;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace EmployeeManagement.DB
+namespace EmployeeManagementDataAccess
 {
     public class EmployeeData:IEmployeeData
     {
-      
-         EmployeeEntities employeeEntity = new EmployeeEntities();
+        EmployeeEntities employeeEntity = new EmployeeEntities();
         EntityMapper entityMapper = new EntityMapper();
 
-        public  List<EmployeeDataModel> GetAllEmployees()
+        public List<EmployeeDataModel> GetAllEmployees()
         {
             List<tbl_Employee> employee = employeeEntity.tbl_Employee.ToList();
             List<EmployeeDataModel> employeeData = new List<EmployeeDataModel>();
-            foreach(tbl_Employee _Employee in employee)
+            foreach (tbl_Employee _Employee in employee)
             {
-                var data=entityMapper.DBModelMappingGet(_Employee);
+                var data = entityMapper.DBModelMappingGet(_Employee);
                 employeeData.Add(data);
             }
             return employeeData;
@@ -28,13 +26,13 @@ namespace EmployeeManagement.DB
 
         public EmployeeDataModel GetEmployeeById(int employeeId)
         {
-            tbl_Employee employee= employeeEntity.tbl_Employee.Where(p => p.employeeId == employeeId).FirstOrDefault();
+            tbl_Employee employee = employeeEntity.tbl_Employee.Where(p => p.employeeId == employeeId).FirstOrDefault();
             var data = entityMapper.DBModelMappingGet(employee);
             return data;
 
         }
 
-        public  bool AddEmployee(EmployeeDataModel _Employee)
+        public bool AddEmployee(EmployeeDataModel _Employee)
         {
             var data = entityMapper.DBModelMappingPost(_Employee);
             bool status;
@@ -50,8 +48,8 @@ namespace EmployeeManagement.DB
             }
             return status;
         }
-       
-        public  bool DeleteEmployee(int id)
+
+        public bool DeleteEmployee(int id)
         {
             bool status;
             try
@@ -73,3 +71,4 @@ namespace EmployeeManagement.DB
 
     }
 }
+

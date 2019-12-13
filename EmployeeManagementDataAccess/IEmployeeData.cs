@@ -1,10 +1,11 @@
-﻿using System;
+﻿using EmployeeManagement.Object;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.DB
+namespace EmployeeManagementDataAccess
 {
     public interface IEmployeeData
     {
@@ -12,6 +13,5 @@ namespace EmployeeManagement.DB
         EmployeeDataModel GetEmployeeById(int employeeId);
         bool AddEmployee(EmployeeDataModel _Employee);
         bool DeleteEmployee(int id);
-
     }
 }

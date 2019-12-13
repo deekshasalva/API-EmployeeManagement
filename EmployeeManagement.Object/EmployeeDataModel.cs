@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EmployeeManagement.API.Models
+namespace EmployeeManagement.Object
 {
-    public class Employee
+    public class EmployeeDataModel
     {
         public int employeeId { get; set; }
         public string employeeName { get; set; }
