@@ -53,7 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EmployeeManagement.DB\EmployeeManagement.Object.csproj">
+    <ProjectReference Include="..\EmployeeManagement.Object\EmployeeManagement.Object.csproj">
       <Project>{e5a5c106-08eb-4930-95c3-8f673f573c88}</Project>
       <Name>EmployeeManagement.Object</Name>
     </ProjectReference>

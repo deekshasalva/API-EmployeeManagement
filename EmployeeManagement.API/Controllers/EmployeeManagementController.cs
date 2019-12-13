@@ -16,7 +16,7 @@ namespace EmployeeManagement.API.Controllers
     {
         private readonly IEmployeeData _employeeData=new EmployeeData();
        
-        ModelMapping.ModelMapping modelMap=new ModelMapping.ModelMapping();
+        //ModelMapping.ModelMapping modelMap=new ModelMapping.ModelMapping();
 
               
 

@@ -71,7 +71,6 @@ C:\Users\M1049181\Desktop\api case study\EmployeeManagement\bin\System.Web.WebPa
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement\bin\Newtonsoft.Json.xml
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement\bin\Antlr3.Runtime.pdb
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\M1049181\Desktop\api case study\EmployeeManagement\obj\Debug\EmployeeManagement.csprojAssemblyReference.cache
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.CoreCompileInputs.cache
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.CopyComplete
 C:\Users\M1049181\Desktop\api case study\EmployeeManagement\obj\Debug\EmployeeManagement.dll
