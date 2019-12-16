@@ -19,7 +19,7 @@ namespace EmployeeManagement.Object
                 return data;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -35,7 +35,7 @@ namespace EmployeeManagement.Object
                 return data;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
