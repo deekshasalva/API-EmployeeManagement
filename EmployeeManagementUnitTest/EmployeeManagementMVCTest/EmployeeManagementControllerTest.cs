@@ -1,4 +1,6 @@
 ﻿using EmployeeManagement.Controllers;
+using EmployeeManagement.Models;
+using EmployeeManagement.Object;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -34,7 +36,11 @@ namespace EmployeeManagementUnitTest.EmployeeManagementMVCTest
         [Test]
         public void AddEmployee_PostMethod_ReturnsViewResult()
         {
-            var result = _employeeController.AddEmployee();
+            EmployeeModel employee = new EmployeeModel();
+            employee.employeeName = "Tanu";
+            employee.Age = 24;
+            employee.salaryInLakh = 6.8;
+            var result = _employeeController.AddEmployee(employee);
 
             //Assert
             Assert.That(result, Is.TypeOf<ViewResult>());
