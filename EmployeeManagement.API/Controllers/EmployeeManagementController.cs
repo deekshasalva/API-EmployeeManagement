@@ -14,7 +14,7 @@ namespace EmployeeManagement.API.Controllers
 {
     public class EmployeeManagementController : ApiController
     {
-        private readonly IEmployeeData _employeeData=new EmployeeData();
+        public IEmployeeData _employeeData=new EmployeeData();
        
         //ModelMapping.ModelMapping modelMap=new ModelMapping.ModelMapping();
 
@@ -52,6 +52,7 @@ namespace EmployeeManagement.API.Controllers
         [HttpDelete]
         public bool DeleteEmployee(int id) //this is a simple object so u can use like /api/values/deleteemployye?id=
         {
+
             var status = _employeeData.DeleteEmployee(id);
             return status;
         }

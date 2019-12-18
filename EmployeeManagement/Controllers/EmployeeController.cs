@@ -11,6 +11,7 @@ namespace EmployeeManagement.Controllers
     public class EmployeeController : Controller
     {
 
+        public IServiceRepository serviceObj = new ServiceRepository();
         public ActionResult HomePage()
         {
             return View();
@@ -25,7 +26,6 @@ namespace EmployeeManagement.Controllers
         [HttpPost]
         public ActionResult AddEmployee(Models.EmployeeModel employee)
         {
-            ServiceRepository serviceObj = new ServiceRepository();
             HttpResponseMessage response = serviceObj.PostResponse("api/employeemanagement/addemployee", employee);
             response.EnsureSuccessStatusCode();
             return RedirectToAction("GetAllemployees");
@@ -35,13 +35,12 @@ namespace EmployeeManagement.Controllers
         {
             try
             {
-                ServiceRepository serviceObj = new ServiceRepository();
                 HttpResponseMessage response = serviceObj.GetResponse("api/employeemanagement/getallemployees");
                 response.EnsureSuccessStatusCode();
                 List<Models.EmployeeModel> employeeModels = response.Content.ReadAsAsync<List<Models.EmployeeModel>>().Result;
                 return View(employeeModels);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -53,7 +52,6 @@ namespace EmployeeManagement.Controllers
         {
             try
             {
-                ServiceRepository serviceObj = new ServiceRepository();
                 HttpResponseMessage response = serviceObj.GetResponse("api/employeemanagement/getallemployees");
                 response.EnsureSuccessStatusCode();
                 List<Models.EmployeeModel> employeeModels = response.Content.ReadAsAsync<List<Models.EmployeeModel>>().Result;
@@ -69,7 +67,6 @@ namespace EmployeeManagement.Controllers
         [HttpGet]
         public ActionResult GetEmployee(int id)
         {
-            ServiceRepository serviceObj = new ServiceRepository();
             HttpResponseMessage response = serviceObj.GetResponse("api/employeemanagement/getemployeebyid?id=" + id.ToString());
             response.EnsureSuccessStatusCode();
             Models.EmployeeModel employee = response.Content.ReadAsAsync<Models.EmployeeModel>().Result;
@@ -79,7 +76,6 @@ namespace EmployeeManagement.Controllers
 
         public ActionResult DeleteEmployee(int id)
         {
-            ServiceRepository serviceObj = new ServiceRepository();
             HttpResponseMessage response = serviceObj.DeleteResponse("api/employeemanagement/deleteemployee?id=" + id.ToString());
             response.EnsureSuccessStatusCode();
             return RedirectToAction("GetAllEmployees");

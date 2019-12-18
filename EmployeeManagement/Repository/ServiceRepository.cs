@@ -7,13 +7,15 @@ using System.Web;
 
 namespace EmployeeManagement.Repository
 {
-    public class ServiceRepository
+    public class ServiceRepository:IServiceRepository
     {
         public HttpClient Client { get; set; }
         public ServiceRepository()
         {
             Client = new HttpClient();
-            Client.BaseAddress = new Uri(ConfigurationManager.AppSettings["ServiceUrl"].ToString());
+            //string url = ConfigurationManager.AppSettings["ServiceUrl"].ToString();
+            //Client.BaseAddress = new Uri(url);
+            Client.BaseAddress = new Uri("http://localhost:55044/");
         }
         public HttpResponseMessage GetResponse(string url)
         {

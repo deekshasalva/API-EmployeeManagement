@@ -52,7 +52,7 @@ namespace EmployeeManagementDataAccess
 
         public bool DeleteEmployee(int id)
         {
-            bool status;
+            bool status=false;
             try
             {
                 tbl_Employee employeeToDelete = employeeEntity.tbl_Employee.Where(p => p.employeeId == id).FirstOrDefault();
@@ -60,12 +60,13 @@ namespace EmployeeManagementDataAccess
                 {
                     employeeEntity.tbl_Employee.Remove(employeeToDelete);
                     employeeEntity.SaveChanges();
+                    status = true;
                 }
-                status = true;
+                
             }
             catch (Exception)
             {
-                status = false;
+                
             }
             return status;
         }

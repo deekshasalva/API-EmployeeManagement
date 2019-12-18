@@ -36,6 +36,7 @@ namespace EmployeeManagement.Object
 
             }
             catch (Exception ex)
+
             {
                 throw;
             }
